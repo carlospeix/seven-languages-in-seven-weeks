@@ -2,9 +2,15 @@ Day 1 Self-Study
 ================
 
 a) Some example Io problems
-b) An Io community that will answer questions
-c) A Style guide with Io idioms
+	http://c2.com/cgi/wiki?IoLanguage
 
+b) An Io community that will answer questions
+	http://tech.groups.yahoo.com/group/iolanguage/messages
+	http://stackoverflow.com/questions/tagged/iolanguage
+	http://www.reddit.com/r/iolanguage
+
+c) A Style guide with Io idioms
+	http://en.wikibooks.org/wiki/Io_Programming/Io_Style_Guide
 
 Answer
 ======
