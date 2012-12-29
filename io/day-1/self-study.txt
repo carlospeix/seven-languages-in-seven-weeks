@@ -1,0 +1,78 @@
+Day 1 Self-Study
+================
+
+a) Some example Io problems
+b) An Io community that will answer questions
+c) A Style guide with Io idioms
+
+
+Answer
+======
+
+1) Evaluate 1+1 and 1+"one". Is Io strongly typed or weakly typed. Suport your answer with code.
+
+Acording to the wikipedia definition "a type system is said to feature strong typing when it specifies one or more restrictions on how operations involving values of different data types can be intermixed", Io is strongly type language because whe you try to execute 1 + "one" without runtime warning.
+
+Io> 1+"one"
+
+  Exception: argument 0 to method '+' must be a Number, not a 'Sequence'
+  ---------
+  message '+' in 'Command Line' on line 1
+
+2) Is 0 true or false? What about the empty string? Is nil true or false? Support your answer with code. 
+
+0 and "" evaluate to true
+
+Io> 0 and 0
+==> true
+Io> 0 and true
+==> true
+Io> 0 and false
+==> false
+Io> "" and false
+==> false
+Io> "" and ""
+==> true
+
+nil evaluates to false
+
+Io> nil or true
+==> true
+Io> nil and true
+==> false
+Io> nil or nil
+==> false
+
+3) How can you tell what slots a prototype supports?
+
+The message slotNames returns the slots contained in a prototype. However, the prototype forward the unsuported slots to its prototype. So, to find all the supported slots, you should go up all the way to Object.
+
+Io> "" slotNames
+==> list(type)
+
+4) What is the difference between =, :=, ::= and when should each one be used? When would you use each one?
+
+All are assignment operators.
+
+"=" assigns if the slot exist, otherwise fails
+":=" assigns if the slot doesn't exist, creates it
+"::=" assigns if the slot doesn't exist, creates it and creates a setter (see the think slot below)
+
+Io> Animal := Object clone
+==>  Animal_0x9a500c8:
+  type             = "Animal"
+
+Io> Animal slotNames
+==> list(type)
+Io> Animal live := true
+==> true
+Io> Animal slotNames
+==> list(type, live)
+Io> Animal think ::= false
+==> false
+Io> Animal slotNames
+==> list(type, think, live, setThink)
+
+5) Run an io program from a file
+6) Execute the code in a slot given its name.
+	See run.io in this folder
